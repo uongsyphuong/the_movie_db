@@ -37,6 +37,9 @@ dependencies:
   json_annotation: ^3.0.1
   transparent_image: ^1.0.0
 
+  video_player: ^0.10.11+2
+  youtube_player_flutter: ^7.0.0+7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

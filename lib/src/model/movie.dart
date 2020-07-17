@@ -5,6 +5,7 @@ part 'movie.g.dart';
 
 @JsonSerializable()
 class Movie {
+  int id;
   String title;
   String overview;
   @JsonKey(name: 'poster_path')
@@ -12,7 +13,7 @@ class Movie {
   @JsonKey(name: 'backdrop_path')
   String backdropPath;
 
-  Movie(this.title, this.overview, this.posterPath, this.backdropPath);
+  Movie(this.id, this.title, this.overview, this.posterPath, this.backdropPath);
 
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 
