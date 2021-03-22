@@ -51,21 +51,24 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                 style: TextStyle(fontSize: 12, color: Color(0xFF9E9E9E)),
               ),
               Spacer(),
-              RaisedGradientButton(
-                  child: Text(
-                    'Gửi mã xác nhận'.toUpperCase(),
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w700),
-                  ),
-                  gradient: LinearGradient(
-                    colors: [Color(0xA3019E84), Color(0xFF019E84)],
-                  ),
-                  onPressed: () {
-                    Navigator.push(context,
-                        CupertinoPageRoute(builder: (context) {
-                      return ForgotPass2Screen();
-                    }));
-                  })
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: RaisedGradientButton(
+                    child: Text(
+                      'Gửi mã xác nhận'.toUpperCase(),
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w700),
+                    ),
+                    gradient: LinearGradient(
+                      colors: [Color(0xA3019E84), Color(0xFF019E84)],
+                    ),
+                    onPressed: () {
+                      Navigator.push(context,
+                          CupertinoPageRoute(builder: (context) {
+                        return ForgotPass2Screen();
+                      }));
+                    }),
+              )
             ],
           ),
         ),

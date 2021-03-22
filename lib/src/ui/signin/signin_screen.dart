@@ -92,35 +92,38 @@ class _SignInScreenState extends State<SignInScreen> {
                     print('button clicked');
                   }),
               Spacer(),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: RichText(
-                  text: TextSpan(
-                    style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Colors.black),
-                    children: [
-                      TextSpan(
-                        text: "Bạn chưa có tài khoản? ",
-                      ),
-                      TextSpan(
-                          text: "Đăng ký",
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => SignUpScreen()));
-                            },
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Color(0xFF019E84),
-                            color: Color(0xFF019E84),
-                            fontSize: 14,
-                          ))
-                    ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: Colors.black),
+                      children: [
+                        TextSpan(
+                          text: "Bạn chưa có tài khoản? ",
+                        ),
+                        TextSpan(
+                            text: "Đăng ký",
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    CupertinoPageRoute(
+                                        builder: (context) => SignUpScreen()));
+                              },
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Color(0xFF019E84),
+                              color: Color(0xFF019E84),
+                              fontSize: 14,
+                            ))
+                      ],
+                    ),
                   ),
                 ),
               ),

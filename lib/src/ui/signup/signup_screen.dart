@@ -15,17 +15,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
     AppBar appbar = AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      leadingWidth: MediaQuery.of(context).size.width / 3,
-      leading: Align(
-        alignment: Alignment.centerLeft,
-        child: FlatButton(
+      automaticallyImplyLeading: false,
+      title: InkWell(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [Icon(Icons.arrow_back_ios), Text("Quay lại")],
+            children: [
+              Icon(Icons.arrow_back_ios),
+              Text(
+                "Đăng nhập",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+              )
+            ],
           ),
-          onPressed: () => Navigator.of(context).pop(),
         ),
+        onTap: () => Navigator.of(context).pop(),
       ),
     );
     return Scaffold(
@@ -118,33 +123,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     print('button clicked');
                   }),
-              Spacer(),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                  ),
-                  children: [
-                    TextSpan(
-                        text: "Bạn chưa có tài khoản? ",
-                        style: TextStyle(color: Colors.black)),
-                    TextSpan(
-                        text: "Đăng ký",
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            print("click");
-                          },
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          decorationColor: Color(0xFF019E84),
-                          color: Color(0xFF019E84),
-                          fontSize: 14,
-                        ))
-                  ],
-                ),
-              ),
             ],
           ),
         ),
