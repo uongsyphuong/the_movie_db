@@ -2,15 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:http_logger/log_level.dart';
-import 'package:http_logger/logging_middleware.dart';
-import 'package:http_middleware/http_with_middleware.dart';
+import 'package:http/http.dart' as http;
 import 'package:the_movie_db/src/model/base_response.dart';
 import 'package:the_movie_db/src/model/movie.dart';
 import 'package:the_movie_db/src/model/video.dart';
 import 'package:video_player/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import 'item_movie.dart';
 
@@ -51,11 +47,9 @@ class _MovieDetailPage extends State<MovieDetailPage> {
   }
 
   Future _loadData(String movieId) async {
-    HttpWithMiddleware httpClient = HttpWithMiddleware.build(
-        middlewares: [HttpLogger(logLevel: LogLevel.BODY)]);
     var url =
         "https://api.themoviedb.org/3/movie/$movieId/videos?api_key=bb65eb0482ae97c522075b1fadd87d61";
-    var response = await httpClient.get(url);
+    var response = await http.get(Uri(scheme: url));
     if (response.statusCode == 200) {
       var listVideo = BaseResponses.fromJson(jsonDecode(response.body))
           .results

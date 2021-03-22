@@ -1,10 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_logger/http_logger.dart';
-import 'package:http_middleware/http_middleware.dart';
 import 'package:the_movie_db/src/model/base_response.dart';
 import 'package:the_movie_db/src/model/movie.dart';
 import 'package:the_movie_db/src/resource/movie_detail.dart';
@@ -72,24 +71,24 @@ class _ListMoviePage extends State<ListMoviePage> {
   void onClickItemMovie(Movie movie) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MovieDetailPage(movieId: movie.id.toString(),)),
+      CupertinoPageRoute(
+          builder: (context) => MovieDetailPage(
+                movieId: movie.id.toString(),
+              )),
     );
   }
 
   Future _loadData(bool isInit) async {
-    if (!isInit){
+    if (!isInit) {
       page = 1;
       items = null;
     }
     if (items != null) {
       page++;
     }
-    HttpWithMiddleware httpClient = HttpWithMiddleware.build(middlewares: [
-      HttpLogger(logLevel: LogLevel.BODY)
-    ]);
-    var url =
-        "http://api.themoviedb.org/3/movie/now_playing?api_key=bb65eb0482ae97c522075b1fadd87d61&page=$page";
-    var response = await httpClient.get(url);
+
+    var response = await http.get(Uri.https("api.themoviedb.org",
+        "/3/movie/now_playing?api_key=bb65eb0482ae97c522075b1fadd87d61&page=$page"));
     if (response.statusCode == 200) {
       var listMovie =
           (BaseResponses.fromJson(jsonDecode(response.body)).results)

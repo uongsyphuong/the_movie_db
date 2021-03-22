@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:the_movie_db/src/resource/list_movie.dart';
+import 'package:universal_platform/universal_platform.dart';
+
+import 'ui/signin/signin_screen.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -8,10 +10,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'The Movie DB',
       theme: ThemeData(
-
         primarySwatch: Colors.grey,
       ),
-      home: ListMoviePage(),
+      debugShowCheckedModeBanner: false,
+      home: (UniversalPlatform.isWeb) ? SignInScreen() : SignInScreen(),
     );
   }
 }
