@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_db/src/ui/onboarding/onboarding_screen.dart';
+import 'package:the_movie_db/src/ui/signin/signin_screen.dart';
+
+import 'api/shared_prefs.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -11,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      home: SharedPrefs().isFirstTime ? OnBoardingScreen() : SignInScreen(),
     );
   }
 }

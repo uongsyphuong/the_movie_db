@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:the_movie_db/src/api/shared_prefs.dart';
 import 'package:the_movie_db/src/ui/onboarding/slide_tile.dart';
 import 'package:the_movie_db/src/ui/signin/signin_screen.dart';
 
@@ -111,6 +113,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 curve: Curves.linear);
                           }
                         : () {
+                      SharedPrefs().isFirstTime = false;
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
