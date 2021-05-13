@@ -6,6 +6,7 @@ import 'package:the_movie_db/src/ui/customView/raise_button.dart';
 import 'package:the_movie_db/src/ui/customView/scroll_view_height.dart';
 import 'package:the_movie_db/src/ui/customView/text_input.dart';
 import 'package:the_movie_db/src/ui/forgotPass/forgot_pass_screen.dart';
+import 'package:the_movie_db/src/ui/home/bottom_navigation.dart';
 import 'package:the_movie_db/src/ui/signup/signup_screen.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -89,7 +90,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     colors: [Color(0xA3019E84), Color(0xFF019E84)],
                   ),
                   onPressed: () {
-                    print('button clicked');
+                    Navigator.push(
+                        context,
+                        CupertinoPageRoute(
+                            builder: (context) => BottomNavigation()));
                   }),
               Spacer(),
               Padding(

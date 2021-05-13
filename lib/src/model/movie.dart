@@ -20,10 +20,10 @@ class Movie {
   Map<String, dynamic> toJson() => _$MovieToJson(this);
 
   String getPostUrl(){
-    return "http://image.tmdb.org/t/p/w200/$posterPath";
+    return "https://image.tmdb.org/t/p/w200$posterPath";
   }
 
   String getBackdropUrl() {
-    return "http://image.tmdb.org/t/p/w400/$backdropPath";
+    return "https://image.tmdb.org/t/p/w400$backdropPath";
   }
 }
